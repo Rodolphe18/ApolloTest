@@ -5,6 +5,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("com.apollographql.apollo3").version("3.7.3")
+    alias(libs.plugins.hilt.plugin)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 apollo {
@@ -49,21 +52,7 @@ android {
 }
 
 dependencies {
-    implementation("com.apollographql.apollo3:apollo-runtime:3.7.3")
 
-    // --- Optionnel mais recommandé selon ton usage ---
-
-    // Cache normalisé en mémoire (simple)
-    implementation("com.apollographql.apollo3:apollo-normalized-cache:3.7.3")
-
-    // Cache normalisé SQLite (persistance disque)
-    implementation("com.apollographql.apollo3:apollo-normalized-cache-sqlite:3.7.3")
-
-    // Intégration OkHttp (si tu veux personnaliser le client, intercepteurs, etc.)
-    implementation("com.apollographql.apollo3:apollo-okhttp3:3.7.3")
-
-    // Adapters utiles pour certains scalars (UUID, Instant, etc.)
-    implementation("com.apollographql.apollo3:apollo-adapters:3.7.3")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -79,4 +68,30 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    // Apollo
+    implementation(libs.apollo.runtime)
+    implementation(libs.apollo.normalized.cache)
+    implementation(libs.apollo.normalized.cache.sqlite)
+    implementation(libs.apollo.adapters)
+
+    // Hilt
+    implementation(libs.hilt.plugin)
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.core)
+    ksp(libs.hilt.compiler)
+
+    // Coil
+    implementation(libs.coil.kt)
+    implementation(libs.coil.kt.compose)
+
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // Serialization
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.serialization.json.okio)
+
 }

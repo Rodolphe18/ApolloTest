@@ -1,7 +1,7 @@
 package com.francotte.apollotest.domain
 
-import com.francotte.apollotest.CountriesQuery
-import com.francotte.apollotest.CountryQuery
+import com.francotte.CountriesQuery
+import com.francotte.CountryQuery
 
 data class LightCountry(val code: String, val name: String, val emoji: String, val capital: String?)
 

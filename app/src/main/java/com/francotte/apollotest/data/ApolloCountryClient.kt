@@ -1,8 +1,8 @@
 package com.francotte.apollotest.data
 
 import com.apollographql.apollo3.ApolloClient
-import com.francotte.apollotest.CountriesQuery
-import com.francotte.apollotest.CountryQuery
+import com.francotte.CountriesQuery
+import com.francotte.CountryQuery
 import com.francotte.apollotest.domain.CountryClient
 import com.francotte.apollotest.domain.DetailedCountry
 import com.francotte.apollotest.domain.LightCountry
