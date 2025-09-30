@@ -49,7 +49,21 @@ android {
 }
 
 dependencies {
+    implementation("com.apollographql.apollo3:apollo-runtime:3.7.3")
 
+    // --- Optionnel mais recommandé selon ton usage ---
+
+    // Cache normalisé en mémoire (simple)
+    implementation("com.apollographql.apollo3:apollo-normalized-cache:3.7.3")
+
+    // Cache normalisé SQLite (persistance disque)
+    implementation("com.apollographql.apollo3:apollo-normalized-cache-sqlite:3.7.3")
+
+    // Intégration OkHttp (si tu veux personnaliser le client, intercepteurs, etc.)
+    implementation("com.apollographql.apollo3:apollo-okhttp3:3.7.3")
+
+    // Adapters utiles pour certains scalars (UUID, Instant, etc.)
+    implementation("com.apollographql.apollo3:apollo-adapters:3.7.3")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
